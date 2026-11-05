@@ -1,0 +1,17 @@
+== SesAnt v2 home puck verification ==
+puck: 104 mm across, 22 mm high; funnel 48 mm wide at the top, 30-degree walls, 7.9 mm deep
+belly cone: tip r 12.0 -> r 26.7 at the flange, 8.5 mm tall; tip 11.5 mm below the belly
+standing: belly cone tip 38.3 mm above the floor -> clears the puck top by 16.3 mm when walking over it
+seat pose: knees 50.6 deg outward (RealAnt knee 396, stand = 224); body lowered 23.2 mm {'FL': -50.46, 'FR': -50.46, 'BR': -50.67, 'BL': -50.67}
+  seated: cone tip 15.07 above the funnel floor 14.07 (pins reach it); belly flange 1.57 mm above the puck top; feet tips at r {'FL': 146.3, 'FR': 146.4, 'BR': 146.1, 'BL': 146.1}
+seated, pushed 0.3 mm down: contacts = ['belly_cone'] (expected: belly_cone only; the feet stand on the floor)
+capture: 77 lowering runs from cone-tip height H+1 mm down to the seat (offset 0..11 mm in 8 directions, heading 0 / +-15 deg, +-30 deg centred):  the belly cone is always the first contact
+  -> the disc/ring contacts work at any heading; offsets up to +-12 mm are funnelled to the centre (30-degree walls: tan 30 = 0.58 > PLA-on-PLA friction ~0.3, so the cone slides once the servos relax)
+  tag flag fitted: robot heading may be up to +-30 deg off the flag axis before a foot touches the flag or its tongue (checked standing and seated)
+contacts: centre pin within r 1.0 of the disc centre (disc r 3.5); outer pin r 8.25 +-1.0 on ring (6.0, 10.5) -> OK at any heading, polarity cannot reverse
+camera -> tag: 70 mm; camera z 83 (seated) .. 106 (standing), tag centre z 94; 50 mm tag spans +-20 deg of the ~66 deg field of view
+knee load at the end of the lowering (before the servos relax): robot ~320 g (est.), lever 51 mm -> 0.41 kg*cm per knee vs MG90S stall ~2.2 kg*cm
+sesant_v2_home_puck       185.0 x  104.0 x  22.0 mm   114.2 cm3  ~  57 g @~40% fill
+sesant_v2_tag_flag        124.0 x   66.0 x   9.4 mm    39.9 cm3  ~  20 g @~40% fill
+sesant_v2_belly_cone       71.0 x   56.4 x  11.5 mm    18.6 cm3  ~   9 g @~40% fill
+sesant_v2_bottom_cover     79.2 x   38.0 x   7.3 mm    14.5 cm3  ~   7 g @~40% fill

@@ -1,0 +1,55 @@
+{
+ "neck": {
+  "pan_axis_xy": [
+   -22.0,
+   0
+  ],
+  "tilt_axis_xz": [
+   -22.0,
+   62.4
+  ],
+  "tilt_range_deg": [
+   -20,
+   60
+  ],
+  "pan_range_deg": [
+   -120,
+   120
+  ],
+  "scs_ids": {
+   "pan": 1,
+   "tilt": 2
+  },
+  "deg_per_step": 0.3125
+ },
+ "jaw": {
+  "pivots_xy": [
+   [
+    -56.5,
+    -8.75
+   ],
+   [
+    -56.5,
+    8.75
+   ]
+  ],
+  "open_deg": 40.0,
+  "gear": "m1.25 z14 20deg"
+ },
+ "grab_pose": {
+  "pitch_deg": 0.0,
+  "knee_front_units": 446,
+  "knee_back_units": 447,
+  "head_tilt_deg": 60.0
+ },
+ "paw_pose": {
+  "hips_cad_deg": {
+   "FL": -20.0,
+   "FR": 40.0,
+   "BR": 0.0,
+   "BL": -45.0
+  },
+  "fl_knee_units": 548
+ },
+ "mass_g_est": 372
+}

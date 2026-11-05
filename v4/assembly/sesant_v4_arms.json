@@ -1,0 +1,35 @@
+{
+ "yaw_range_deg": [
+  -5.0,
+  15.0
+ ],
+ "pitch_range_deg": [
+  -15.0,
+  70.0
+ ],
+ "jaw_open_deg": 35.0,
+ "carry": {
+  "yaw": 0.0,
+  "pitch": 0.0,
+  "jaw": 0.0
+ },
+ "dock": {
+  "yaw": 0.0,
+  "pitch": -15.0,
+  "jaw": 0.0
+ },
+ "reach_pitch_deg": 19.0,
+ "reach_head_tilt_deg": 51.0,
+ "shoulder_xy": [
+  -55.75,
+  16.0
+ ],
+ "pitch_axis_xz": [
+  -57.75,
+  -16.450000000000003
+ ],
+ "gripper_xy": [
+  -115.75,
+  37.4
+ ]
+}

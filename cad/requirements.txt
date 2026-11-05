@@ -1,0 +1,11 @@
+numpy
+scipy
+trimesh
+manifold3d
+shapely
+matplotlib
+pillow
+python-fcl
+cadquery   # only for step_export.py (reads Sesame STEP via OCP)
+mujoco~=3.11.0   # v4_sim.py (same minor version as Jumper)
+fast_simplification   # v4_sim.py mesh decimation

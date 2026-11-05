@@ -1,0 +1,22 @@
+== hip sweep: leg (femur+knee servo+blade foot) vs chassis/pods/StackChan head+CoreS3/bottom cover ==
+FL collision-free over -90..+90
+FR collision-free over -90..+90
+BR collision-free over -90..+90
+BL collision-free over -90..+90
+== knee sweep: blade foot vs femur & body (knee axis local) ==
+FL foot free knee range -120..50 deg (- = foot swings outward/up, + = inward under body)
+FR foot free knee range -120..50 deg (- = foot swings outward/up, + = inward under body)
+BR foot free knee range -120..50 deg (- = foot swings outward/up, + = inward under body)
+BL foot free knee range -120..50 deg (- = foot swings outward/up, + = inward under body)
+foot tip z -50.8, body bottom z -1.0 -> ground clearance 49.8 mm
+overall footprint [170.7 166.5 153.4] standing height 153.4
+== leg vs neighbour leg (both rotating toward each other, blade feet) ==
+FL BL no contact up to 90 deg
+FR BR no contact up to 90 deg
+FL FR no contact up to 90 deg
+BL BR no contact up to 90 deg
+== StackChan head static fit ==
+CoreS3 vs head/chassis overlap: False (must be False)
+s2mini inside head clear: True
+battery inside head clear: True
+head vs chassis: touching seat only -> contact ; head lowest z 21.97 (spine top 21.97)

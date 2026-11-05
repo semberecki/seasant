@@ -1,0 +1,134 @@
+{
+ "joints": [
+  "FL_hip",
+  "FL_knee",
+  "FR_hip",
+  "FR_knee",
+  "BR_hip",
+  "BR_knee",
+  "BL_hip",
+  "BL_knee",
+  "neck_pan",
+  "neck_tilt",
+  "arm_l_yaw",
+  "arm_l_pitch",
+  "arm_l_jaw",
+  "arm_r_yaw",
+  "arm_r_pitch",
+  "arm_r_jaw"
+ ],
+ "stand_z_m": 0.05077,
+ "reach": {
+  "FL_hip": 0.0,
+  "FL_knee": 0.0,
+  "FR_hip": 0.0,
+  "FR_knee": 0.0,
+  "BR_hip": 0.0,
+  "BR_knee": 0.0,
+  "BL_hip": 0.0,
+  "BL_knee": 0.0,
+  "neck_pan": 0.0,
+  "neck_tilt": 0.8901,
+  "arm_l_yaw": 0.0,
+  "arm_l_pitch": 0.3316,
+  "arm_l_jaw": 0.6109,
+  "arm_r_yaw": 0.0,
+  "arm_r_pitch": 0.3316,
+  "arm_r_jaw": 0.6109
+ },
+ "carry": {
+  "FL_hip": 0.0,
+  "FL_knee": 0.0,
+  "FR_hip": 0.0,
+  "FR_knee": 0.0,
+  "BR_hip": 0.0,
+  "BR_knee": 0.0,
+  "BL_hip": 0.0,
+  "BL_knee": 0.0,
+  "neck_pan": 0.0,
+  "neck_tilt": 0.0,
+  "arm_l_yaw": 0.0,
+  "arm_l_pitch": 0.0,
+  "arm_l_jaw": 0.0,
+  "arm_r_yaw": 0.0,
+  "arm_r_pitch": 0.0,
+  "arm_r_jaw": 0.0
+ },
+ "ranges_rad": {
+  "FL_hip": [
+   -0.9948,
+   1.5359
+  ],
+  "FL_knee": [
+   -2.0595,
+   0.8378
+  ],
+  "FR_hip": [
+   -1.5359,
+   0.8378
+  ],
+  "FR_knee": [
+   -2.0595,
+   0.8378
+  ],
+  "BR_hip": [
+   -1.5359,
+   1.5359
+  ],
+  "BR_knee": [
+   -2.0595,
+   0.8378
+  ],
+  "BL_hip": [
+   -1.5359,
+   1.5359
+  ],
+  "BL_knee": [
+   -2.0595,
+   0.8378
+  ],
+  "neck_pan": [
+   -2.0944,
+   2.0944
+  ],
+  "neck_tilt": [
+   -0.3491,
+   1.0472
+  ],
+  "arm_l_yaw": [
+   -0.0873,
+   0.2618
+  ],
+  "arm_l_pitch": [
+   -0.2618,
+   1.2217
+  ],
+  "arm_l_jaw": [
+   0.0,
+   0.6109
+  ],
+  "arm_r_yaw": [
+   -0.0873,
+   0.2618
+  ],
+  "arm_r_pitch": [
+   -0.2618,
+   1.2217
+  ],
+  "arm_r_jaw": [
+   0.0,
+   0.6109
+  ]
+ },
+ "mg90s": {
+  "effort": 0.21,
+  "kp": 3.0,
+  "kv": 0.03
+ },
+ "scs0009": {
+  "effort": 0.22,
+  "kp": 3.0,
+  "kv": 0.03
+ },
+ "armature": 0.001
+}

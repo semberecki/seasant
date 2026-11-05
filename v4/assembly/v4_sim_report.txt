@@ -1,0 +1,8 @@
+== SesAnt v4 MuJoCo model checks (mujoco 3.11.0) ==
+model: 19 bodies, 18 hinge joints + free base, 16 position actuators, 76 geoms; mass 460 g (CAD estimate 460 g)
+stand (3 s, holding the stand pose): base z 51.8 -> 50.4 mm (CAD 50.8); roll -0.00, pitch -0.08 deg; peak actuator load 3 % of stall
+  floor contacts while standing: ['BL_foot_collision', 'BR_foot_collision', 'FL_foot_collision', 'FR_foot_collision'] (expected: the 4 foot hulls)
+reach (standing, both arms 19 deg down, claws open; ramp 1.5 s + hold 1 s): lowest jaw 0.6 mm above the floor (CAD 2.0); body pitch -0.10, roll 0.00 deg; palm jaw follows the finger jaw within 0.01 deg (gear coupling); peak load 12 %
+  floor contacts in the reach pose: ['BL_foot_collision', 'BR_foot_collision', 'FL_foot_collision', 'FR_foot_collision']
+neck sweep (pan +-120 deg, head down 45) + both arms sweeping yaw, pitch (up to floor height) and jaws in antiphase, standing: worst body tilt 0.17 deg; neck tracking error 0.1 deg at the end
+drop from 30 mm: settles at base z 50.4 mm, roll -0.00 pitch -0.08 deg, upright

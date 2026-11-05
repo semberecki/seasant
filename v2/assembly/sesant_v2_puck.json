@@ -1,0 +1,43 @@
+{
+ "seat_knee_cad_deg": -50.57,
+ "seat_knee_realant_units": 396,
+ "stand_knee_realant_units": 224,
+ "seat_lift_mm": 27.57,
+ "stand_lift_mm": 50.77,
+ "puck_height_mm": 22.0,
+ "puck_diameter_mm": 104.0,
+ "funnel": {
+  "top_r": 24.0,
+  "floor_r": 10.27,
+  "depth": 7.93,
+  "wall_deg": 30.0
+ },
+ "cone": {
+  "tip_r": 12.0,
+  "flange_r": 26.72,
+  "height": 8.5,
+  "tip_z_robot": -12.5
+ },
+ "pins_xy_mm": [
+  [
+   0.0,
+   0.0
+  ],
+  [
+   0.0,
+   8.25
+  ]
+ ],
+ "pads": {
+  "disc_r": 3.5,
+  "ring_r": [
+   6.0,
+   10.5
+  ]
+ },
+ "tag": {
+  "x": -114.0,
+  "z_centre": 94.2,
+  "size": 50.0
+ }
+}

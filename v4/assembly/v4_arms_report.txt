@@ -1,0 +1,27 @@
+== SesAnt v4 Jumper arms verification ==
+arm: shoulder yaw at (-55.75, +-16.0), pitch axis (-57.75, z -16.45), forearm 58 mm, gripper axis (-115.75, +-37.40); jaws (horizontal: palm inside, finger outside): Jumper palm + finger x0.34, gear pair m1.0 z14 (pivots 14 mm apart)
+jaw gears: max overlap 0.000 mm2 over 0..35 deg, closest 0.14 mm -> mesh without binding; jaw bodies never closer than 0.40 mm to the other jaw
+both jaws open together: closed grip gap 0.9 mm; open 35 + 35 deg -> tips 48 mm apart; claw 41 mm long
+pushrod linkage (no servo at the claw): horn r 7, lever r 7.5, rod 32.6 mm; jaws 0..35 deg <- gripper servo +18.4..-19.2 deg (monotonic, about 1.07 servo deg per jaw deg), loop closure within 0.01 mm
+pushrod (ends trimmed 2.5 mm where it hooks in) vs forearm, gripper servo and both jaws over the jaw range: clear
+static fit: {'yaw_servo_r': 'clear', 'yaw_servo_l': 'clear', 'pitch_servo in shoulder': 'clear', 'grip_servo in forearm': 'clear', 'jaws under the claw plate': 'clear', 'housing vs chassis overlap': '0.00 mm3'}
+shoulder pitch: arm lifts up to 15 deg (capped: enough to clear the puck when docking), down to 70 deg -> pitch range (-15.0, 70.0)
+arm sweep (right arm; left is its mirror), standing legs, head, other arm at rest, every pitch -15..+70 (20 deg steps) x jaws closed/open: collision-free for yaw -15..+15 deg (5 deg steps) -> joint range; beyond: inward ['arm_l_shoulder'], outward ['knee_servo_FR']
+both arms together (pitch 20, jaws open): collision-free from yaw -5 (inward) to 15; first contact inward at -10 deg: ['arm_l_jaw_palm', 'arm_l_shoulder']
+-> yaw joint limit (np.float64(-5.0), 15.0) (both arms may move at once)
+front hips with the arms in the carry pose (yaw 0, pitch 0, jaws closed): {'FL': (-21, 90), 'FR': (-90, 21)}
+front hips with the arms swung out to +15 deg, jaws open: {'FL': (-6, 90), 'FR': (-90, 6)}
+shoulder pitch load, arm horizontal: 17 g at 35 mm -> 0.06 kg*cm = 3 % of MG90S stall; grip per claw ~4.9 N per jaw at 22 mm (est.)
+reach the floor standing: pitch 19.0 deg down puts both open claws 2 mm above the floor at x -142 mm (body front -39.6); CoM margin 46 mm; floor contacts 0.3 mm lower: ['blade_foot_L3', 'blade_foot_L4', 'blade_foot_R3', 'blade_foot_R4']
+  head tilt 51.0 deg looks at the claws (residual -0.0 deg); claws at +-13 deg either side of the camera axis
+mass ~460 g (est.); standing CoM margin >= 51 mm over arm poses (yaw 0/15, pitch -15/0/+30)
+on the v2 home puck (arms lifted 15 deg for docking), pushed 0.3 mm down: contacts = ['belly_cone']
+sesant_v4_arm_housing          40.0 x   49.2 x  40.0 mm   29.4 cm3
+sesant_v4_shoulder_right       33.2 x   28.9 x  16.1 mm    4.1 cm3
+sesant_v4_forearm_right        72.0 x   20.0 x  23.0 mm    3.3 cm3
+sesant_v4_jaw_palm_right       44.3 x   18.7 x   5.0 mm    1.5 cm3
+sesant_v4_jaw_finger_right     44.0 x   17.7 x   5.0 mm    1.5 cm3
+sesant_v4_shoulder_left        33.2 x   28.9 x  16.1 mm    4.1 cm3
+sesant_v4_forearm_left         72.0 x   20.0 x  23.0 mm    3.3 cm3
+sesant_v4_jaw_palm_left        44.3 x   18.7 x   5.0 mm    1.5 cm3
+sesant_v4_jaw_finger_left      44.0 x   17.7 x   5.0 mm    1.5 cm3

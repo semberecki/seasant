@@ -1,0 +1,37 @@
+<mujoco model="sesant scene">
+  <include file="sesant.xml"/>
+  <option timestep="0.002" cone="elliptic" impratio="10"/>
+  <visual><global offwidth="1280" offheight="960"/></visual>
+  <asset>
+    <texture name="sky" type="skybox" builtin="gradient" rgb1="1 1 1" rgb2=".80 .85 .92" width="512" height="512"/>
+    <texture name="grid" type="2d" builtin="checker" rgb1=".92 .92 .92" rgb2=".82 .82 .82" width="300" height="300"/>
+    <material name="grid" texture="grid" texrepeat="8 8" reflectance="0"/>
+  </asset>
+  <worldbody>
+    <light pos="0.3 -0.6 1.2" dir="-0.2 0.5 -1" directional="true"/>
+    <geom name="floor" type="plane" size="2 2 0.05" material="grid" contype="1" conaffinity="1" condim="3" friction="0.8 0.005 0.0001"/>
+  </worldbody>
+  <actuator>
+    <position name="FL_hip" joint="FL_hip" kp="3.0" kv="0.03" forcerange="-0.21 0.21" ctrlrange="-0.9948 1.5359"/>
+    <position name="FL_knee" joint="FL_knee" kp="3.0" kv="0.03" forcerange="-0.21 0.21" ctrlrange="-2.0595 0.8378"/>
+    <position name="FR_hip" joint="FR_hip" kp="3.0" kv="0.03" forcerange="-0.21 0.21" ctrlrange="-1.5359 0.8378"/>
+    <position name="FR_knee" joint="FR_knee" kp="3.0" kv="0.03" forcerange="-0.21 0.21" ctrlrange="-2.0595 0.8378"/>
+    <position name="BR_hip" joint="BR_hip" kp="3.0" kv="0.03" forcerange="-0.21 0.21" ctrlrange="-1.5359 1.5359"/>
+    <position name="BR_knee" joint="BR_knee" kp="3.0" kv="0.03" forcerange="-0.21 0.21" ctrlrange="-2.0595 0.8378"/>
+    <position name="BL_hip" joint="BL_hip" kp="3.0" kv="0.03" forcerange="-0.21 0.21" ctrlrange="-1.5359 1.5359"/>
+    <position name="BL_knee" joint="BL_knee" kp="3.0" kv="0.03" forcerange="-0.21 0.21" ctrlrange="-2.0595 0.8378"/>
+    <position name="neck_pan" joint="neck_pan" kp="3.0" kv="0.03" forcerange="-0.22 0.22" ctrlrange="-2.0944 2.0944"/>
+    <position name="neck_tilt" joint="neck_tilt" kp="3.0" kv="0.03" forcerange="-0.22 0.22" ctrlrange="-0.3491 1.0472"/>
+    <position name="arm_l_yaw" joint="arm_l_yaw" kp="3.0" kv="0.03" forcerange="-0.21 0.21" ctrlrange="-0.0873 0.2618"/>
+    <position name="arm_l_pitch" joint="arm_l_pitch" kp="3.0" kv="0.03" forcerange="-0.21 0.21" ctrlrange="-0.2618 1.2217"/>
+    <position name="arm_l_jaw" joint="arm_l_jaw" kp="3.0" kv="0.03" forcerange="-0.21 0.21" ctrlrange="0.0000 0.6109"/>
+    <position name="arm_r_yaw" joint="arm_r_yaw" kp="3.0" kv="0.03" forcerange="-0.21 0.21" ctrlrange="-0.0873 0.2618"/>
+    <position name="arm_r_pitch" joint="arm_r_pitch" kp="3.0" kv="0.03" forcerange="-0.21 0.21" ctrlrange="-0.2618 1.2217"/>
+    <position name="arm_r_jaw" joint="arm_r_jaw" kp="3.0" kv="0.03" forcerange="-0.21 0.21" ctrlrange="0.0000 0.6109"/>
+  </actuator>
+  <keyframe>
+    <key name="stand" qpos="0 0 0.0517698 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" ctrl="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+    <key name="carry" qpos="0 0 0.0517698 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0" ctrl="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+    <key name="reach" qpos="0 0 0.0517698 1 0 0 0 0 0 0 0 0 0 0 0 0 0.890118 0 0.331613 0.610865 0.610865 0 0.331613 0.610865 0.610865" ctrl="0 0 0 0 0 0 0 0 0 0.890118 0 0.331613 0.610865 0 0.331613 0.610865"/>
+  </keyframe>
+</mujoco>
