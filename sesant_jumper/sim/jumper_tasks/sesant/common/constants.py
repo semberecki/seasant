@@ -50,7 +50,7 @@ ARM_ACTUATOR_CFG = BuiltinPositionActuatorCfg(
     target_names_expr=(r"arm_._yaw", r"arm_._pitch", r"arm_._jaw"), stiffness=STIFFNESS, damping=DAMPING, effort_limit=MG90S_EFFORT, armature=ARMATURE)
 
 # ── Initial state: standing, knees vertical (RealAnt `standup`), head level, arms in the carry pose (level, claws closed) ──
-STAND_Z = 0.0518   # base height standing, from the CAD (v4_sim.py writes sesant_sim.json with the same number)
+STAND_Z = 0.0518   # base height standing, from the CAD (jumper_sim.py writes sesant_sim.json with the same number)
 CARRY_PITCH = 0.0       # rad: arms level while walking (lifting them crowds the front knee servos)
 INIT_STATE = EntityCfg.InitialStateCfg(pos=(0.0, 0.0, STAND_Z), joint_pos={r"(FL|FR|BR|BL)_.*": 0.0, r"neck_.*": 0.0, r"arm_._(yaw|jaw|jaw2)": 0.0, r"arm_._pitch": CARRY_PITCH}, joint_vel={".*": 0.0})
 

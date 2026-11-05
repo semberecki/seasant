@@ -79,7 +79,7 @@ prof = [(0, 0), (R_BASE, 0), (R_BASE, 1.0), (R_TOP, H), (R_FT + 0.8, H), (R_FT -
 puck = mf.CrossSection([np.array(prof, float)]).revolve(192)
 # front tongue to the tag flag, rear tab for the USB-C input
 tongue2d = rrect(TAG_X - 10.0, -R_BASE + 14.0, -12.0, 12.0, 4.0)
-puck += chamfered_slab(tongue2d, 0, 3.0, 1.2, steps=6)                 # low: v4's arms pass over it when seated
+puck += chamfered_slab(tongue2d, 0, 3.0, 1.2, steps=6)                 # low: SesAnt Jumper's arms pass over it when seated
 puck += chamfered_slab(rrect(TAG_X - 10.0, TAG_X + 10.0, -20.0, 20.0, 5.0), 0, 9.0, 2.5, steps=8)   # flag boss
 tab2d = rrect(R_BASE - 16.0, R_BASE + 9.0, -12.5, 12.5, 4.0)
 puck += chamfered_slab(tab2d, 0, 9.0, 2.0, steps=8)

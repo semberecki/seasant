@@ -33,13 +33,13 @@ Jumper (https://github.com/KingKongRobotics/jumper)
     Copyright 2026 KingKong Robotics.
     Licensed under the Apache License, Version 2.0 -- licenses/jumper-Apache-2.0.txt
     Used: the claw outline (palm and finger), projected from Jumper's URDF
-    meshes, for the v4 jaws; the layout of its task registry, which the
+    meshes, for the SesAnt Jumper jaws; the layout of its task registry, which the
     sesant.flat training task follows. No Jumper files are included; the
     third-party material listed in Jumper's own NOTICE (mjlab, rsl_rl, ...) is
-    not included here either. v4/sim/install_into_jumper.sh adds the SesAnt
+    not included here either. sesant_jumper/sim/install_into_jumper.sh adds the SesAnt
     task to a Jumper checkout that the user obtains separately.
 
-The sesant.flat environment config (v4/sim/jumper_tasks/) follows mjlab's
+The sesant.flat environment config (sesant_jumper/sim/jumper_tasks/) follows mjlab's
 Unitree Go1 velocity task (https://github.com/mujocolab/mjlab, Apache License
 2.0), which it imports at run time.
 

@@ -68,7 +68,7 @@ This is the v2 puck firmware plus:
   * Servo IDs are 1 = pan and 2 = tilt; the StackChan mapping is 0.3125°/step.
   * `neck <pan> <tilt>` moves the head, `neck_zero` stores the current position as straight ahead (in NVS), and `neck_torque 0|1` turns the neck on or off.
   * The measured pan and tilt angles go into `meas`.
-* **Jaw:** an MG90S on GPIO 7. `jaw <0..40>` sets the opening; `grab` and `release` close and open it. (v4 replaces the mandibles with two arms and has its own firmware, `v4/firmware/sesant_v4_body`.)
+* **Jaw:** an MG90S on GPIO 7. `jaw <0..40>` sets the opening; `grab` and `release` close and open it. (SesAnt Jumper replaces the mandibles with two arms and has its own firmware, `sesant_jumper/firmware/sesant_jumper_body`.)
 * **Macros:**
   * `crouch`: the grab pose above, with mandibles open and head looking down.
   * `paw`: shift onto three feet, lift FL, tap twice, then stand up again. If the support legs swing the wrong way during calibration, flip `HIP_SIGN`.

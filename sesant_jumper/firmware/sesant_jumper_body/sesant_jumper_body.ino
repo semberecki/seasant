@@ -1,14 +1,14 @@
-// SesAnt v4: RealAnt-protocol bridge + home puck + StackChan neck + two Jumper-style arms with two-jaw claws
+// SesAnt Jumper: RealAnt-protocol bridge + home puck + StackChan neck + two Jumper-style arms with two-jaw claws
 // ---------------------------------------------------------------------------
 // Builds on v3 (v3/firmware/sesant_v3_body): legs, battery, dock/undock on the home puck, SCS0009 neck on Serial1,
-// CoreS3 command link on Serial0, paw. The v3 mandibles are replaced by two arms (v4/README.md), 3 MG90S each:
+// CoreS3 command link on Serial0, paw. The v3 mandibles are replaced by two arms (sesant_jumper/README.md), 3 MG90S each:
 //   shoulder yaw (+ = outward)   GPIO 9 left / 7 right    -5 .. +15 deg
 //   shoulder pitch (+ = down)    GPIO 12 left / 11 right  -15 .. +70 deg
 //   gripper (+ = open)           GPIO 16 left / 15 right   0 .. 35 deg per jaw: the claws grab horizontally, a gear pair
 //                                                          swings both jaws sideways together. The gripper servo sits on the
 //                                                          forearm behind the shoulder and drives the finger jaw through a
 //                                                          wire pushrod: servo angle = GRIP_THETA0 + GRIP_GAIN * jaw (CAD fit)
-// Limits come from the CAD sweep (v4/assembly/sesant_v4_arms.json): the arms stay clear of each other, the housing and
+// Limits come from the CAD sweep (sesant_jumper/assembly/sesant_jumper_arms.json): the arms stay clear of each other, the housing and
 // the front legs. Walk with the arms in the carry pose (level): then the front hips keep about +-25 deg; lifting the
 // arms crowds the knee servos, so `dock` lifts them only once the robot is about to sit.
 // Commands (in addition to v1-v3: attach_servos, detach_servos, reset, standup, sN <pos>, dock, undock, battery,
@@ -66,7 +66,7 @@ float neckMeas[2] = {-999, -999};
 // arms
 const int   YAW_MIN = -5, YAW_MAX = 15, PITCH_MIN = -15, PITCH_MAX = 70, JAW_OPEN_DEG = 35;
 const int   CARRY_PITCH = 0, DOCK_PITCH = -15, REACH_PITCH = 19;
-const float GRIP_THETA0 = 18.4f, GRIP_GAIN = -1.07f;     // pushrod linkage: servo deg at jaw 0, servo deg per jaw deg (v4_arms_report)
+const float GRIP_THETA0 = 18.4f, GRIP_GAIN = -1.07f;     // pushrod linkage: servo deg at jaw 0, servo deg per jaw deg (sesant_jumper_arms_report)
 // servo direction per joint and side (the left arm is the mirror image): flip a sign if a joint moves the wrong way
 int8_t ARM_DIR[3][2] = {{+1, -1}, {+1, -1}, {+1, -1}};     // [yaw, pitch, jaw][left, right]
 int8_t ARM_TRIM[3][2] = {{0, 0}, {0, 0}, {0, 0}};
@@ -284,7 +284,7 @@ void setup() {
   readPower();
   delay(300);
   armsCarry();
-  Serial.println("realant says hello - sesant_v4_body (ESP32-S2 + MG90S legs, SCS0009 neck, two 3-servo Jumper arms, home puck)");
+  Serial.println("realant says hello - sesant_jumper_body (ESP32-S2 + MG90S legs, SCS0009 neck, two 3-servo Jumper arms, home puck)");
 }
 
 void loop() {

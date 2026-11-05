@@ -1,4 +1,4 @@
-== SesAnt v4 MuJoCo model checks (mujoco 3.11.0) ==
+== SesAnt Jumper MuJoCo model checks (mujoco 3.11.0) ==
 model: 19 bodies, 18 hinge joints + free base, 16 position actuators, 76 geoms; mass 460 g (CAD estimate 460 g)
 stand (3 s, holding the stand pose): base z 51.8 -> 50.4 mm (CAD 50.8); roll -0.00, pitch -0.08 deg; peak actuator load 3 % of stall
   floor contacts while standing: ['BL_foot_collision', 'BR_foot_collision', 'FL_foot_collision', 'FR_foot_collision'] (expected: the 4 foot hulls)

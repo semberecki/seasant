@@ -10,6 +10,7 @@ python scripts/render_asm.py work && python scripts/print_sheet.py .. && python 
 # v2: home puck (belly cone + charging funnel) -> ../v2 ; v3: StackChan neck + ant mandibles (needs v2) -> ../v3
 python scripts/v2_puck.py work .. && python scripts/v2_render.py work ..
 python scripts/v3_neck_jaw.py work .. && python scripts/v3_render.py work ..
-# v4: Jumper remix - two Jumper arms with two-jaw claws + MuJoCo model / Jumper training task (needs v2, v3) -> ../v4
-python scripts/v4_arms.py work .. && python scripts/v4_sim.py work .. && python scripts/v4_render.py work .. && python scripts/v4_animate.py work ..
-python scripts/print_sheet.py ../v2 && python scripts/print_sheet.py ../v3 && python scripts/print_sheet.py ../v4
+# SesAnt Jumper: Jumper remix - two Jumper arms with two-jaw claws + MuJoCo model / Jumper training task (needs v2, v3) -> ../sesant_jumper
+python scripts/jumper_arms.py work .. && python scripts/jumper_sim.py work .. && python scripts/jumper_render.py work .. && python scripts/jumper_animate.py work ..
+python scripts/jumper_step.py work ..   # -> ../SesAnt Jumper.step (whole robot, one STEP assembly)
+python scripts/print_sheet.py ../v2 && python scripts/print_sheet.py ../v3 && python scripts/print_sheet.py ../sesant_jumper

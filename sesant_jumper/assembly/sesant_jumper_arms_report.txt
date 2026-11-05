@@ -1,4 +1,4 @@
-== SesAnt v4 Jumper arms verification ==
+== SesAnt Jumper arms verification ==
 arm: shoulder yaw at (-55.75, +-16.0), pitch axis (-57.75, z -16.45), forearm 58 mm, gripper axis (-115.75, +-37.40); jaws (horizontal: palm inside, finger outside): Jumper palm + finger x0.34, gear pair m1.0 z14 (pivots 14 mm apart)
 jaw gears: max overlap 0.000 mm2 over 0..35 deg, closest 0.14 mm -> mesh without binding; jaw bodies never closer than 0.40 mm to the other jaw
 both jaws open together: closed grip gap 0.9 mm; open 35 + 35 deg -> tips 48 mm apart; claw 41 mm long
@@ -16,12 +16,12 @@ reach the floor standing: pitch 19.0 deg down puts both open claws 2 mm above th
   head tilt 51.0 deg looks at the claws (residual -0.0 deg); claws at +-13 deg either side of the camera axis
 mass ~460 g (est.); standing CoM margin >= 51 mm over arm poses (yaw 0/15, pitch -15/0/+30)
 on the v2 home puck (arms lifted 15 deg for docking), pushed 0.3 mm down: contacts = ['belly_cone']
-sesant_v4_arm_housing          40.0 x   49.2 x  40.0 mm   29.4 cm3
-sesant_v4_shoulder_right       33.2 x   28.9 x  16.1 mm    4.1 cm3
-sesant_v4_forearm_right        72.0 x   20.0 x  23.0 mm    3.3 cm3
-sesant_v4_jaw_palm_right       44.3 x   18.7 x   5.0 mm    1.5 cm3
-sesant_v4_jaw_finger_right     44.0 x   17.7 x   5.0 mm    1.5 cm3
-sesant_v4_shoulder_left        33.2 x   28.9 x  16.1 mm    4.1 cm3
-sesant_v4_forearm_left         72.0 x   20.0 x  23.0 mm    3.3 cm3
-sesant_v4_jaw_palm_left        44.3 x   18.7 x   5.0 mm    1.5 cm3
-sesant_v4_jaw_finger_left      44.0 x   17.7 x   5.0 mm    1.5 cm3
+sesant_jumper_arm_housing      40.0 x   49.2 x  40.0 mm   29.4 cm3
+sesant_jumper_shoulder_right   33.2 x   28.9 x  16.1 mm    4.1 cm3
+sesant_jumper_forearm_right    72.0 x   20.0 x  23.0 mm    3.3 cm3
+sesant_jumper_jaw_palm_right   44.3 x   18.7 x   5.0 mm    1.5 cm3
+sesant_jumper_jaw_finger_right   44.0 x   17.7 x   5.0 mm    1.5 cm3
+sesant_jumper_shoulder_left    33.2 x   28.9 x  16.1 mm    4.1 cm3
+sesant_jumper_forearm_left     72.0 x   20.0 x  23.0 mm    3.3 cm3
+sesant_jumper_jaw_palm_left    44.3 x   18.7 x   5.0 mm    1.5 cm3
+sesant_jumper_jaw_finger_left   44.0 x   17.7 x   5.0 mm    1.5 cm3

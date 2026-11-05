@@ -1,4 +1,4 @@
-# SesAnt roadmap: v2 (home puck), v3 (neck + mandibles), v4 (Jumper remix)
+# SesAnt roadmap: v2 (home puck), v3 (neck + mandibles), SesAnt Jumper (Jumper remix)
 
 v1 is in this folder. It puts Sesame's electronics, MG90S servos and face on RealAnt's X body plan, with RealAnt blade shins and the RealAnt serial protocol. v2 and v3 build on it, and both stay at v1 size and on v1's electronics.
 
@@ -62,19 +62,19 @@ Give SesAnt an actively aimed camera and a way to pick things up, without growin
 
 ---
 
-## v4: the Jumper remix (arms with claws + simulator)
+## SesAnt Jumper: the Jumper remix (arms with claws + simulator)
 
 ### Goal
 Borrow what Jumper (KingKong Robotics' 22-DoF crab robot) does best, without copying its 400 mm, 24 V body: front arms with claws, and its simulation and RL training stack.
 
 ### Design
-* **Arms:** two Jumper-style front arms, 3 MG90S each: shoulder yaw, shoulder pitch, gripper. The gripper servo sits behind the shoulder and drives the jaws with a wire pushrod, so there is no servo at the claw. The claws use Jumper's palm + finger outline (projected from its URDF meshes, ×0.34), with both jaws geared to swing open sideways together (horizontal grab). They replace the mandibles (`v4/firmware/sesant_v4_body`).
+* **Arms:** two Jumper-style front arms, 3 MG90S each: shoulder yaw, shoulder pitch, gripper. The gripper servo sits behind the shoulder and drives the jaws with a wire pushrod, so there is no servo at the claw. The claws use Jumper's palm + finger outline (projected from its URDF meshes, ×0.34), with both jaws geared to swing open sideways together (horizontal grab). They replace the mandibles (`sesant_jumper/firmware/sesant_jumper_body`).
 * **Simulator:** a MuJoCo model generated from the SesAnt CAD (meshes, joint axes and limits, estimated masses, servo saturation), plus a `sesant.flat` velocity task for Jumper's mjlab / rsl_rl framework, with an install script.
 
 ### Verified
 * **Arms:** jaw gears mesh with zero overlap, and the pushrod linkage is smooth and clear. Every pose within yaw −5…+15° and pitch −15…+70° is collision-free. Standing, the claws reach the floor at 19° of pitch, the shoulder load is 3 % of stall, and the robot still docks (arms lifted). Walk with the arms level (front hips ±21°).
 * **MuJoCo:** the model's mass matches the CAD. It stands on its 4 feet, reaches the floor with both claws to within 1.3 mm of the CAD pose, and stays upright through neck and arm sweeps and a drop.
-* **Training:** the task registers, and PPO trains with Jumper's CPU backend (see `v4/README.md`).
+* **Training:** the task registers, and PPO trains with Jumper's CPU backend (see `sesant_jumper/README.md`).
 
 ### Next
 1. Train `sesant.flat` on a GPU, play the policy back in Jumper's viewer, then export it to ONNX.
@@ -85,4 +85,4 @@ Borrow what Jumper (KingKong Robotics' 22-DoF crab robot) does best, without cop
 1. **v1 print + walk test:** validate fit, tune `TRIM`/`DIR`, and confirm the 50 mm clearance holds under load.
 2. **v2 home puck:** the cheapest way to unattended sessions.
 3. **v3 neck + mandibles**, once v1 walks reliably.
-4. **v4:** the simulator can start right away (no hardware needed); the claw comes with v3.
+4. **SesAnt Jumper:** the simulator can start right away (no hardware needed); the claw comes with v3.

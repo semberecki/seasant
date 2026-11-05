@@ -1,6 +1,6 @@
 """Minimal reader for the Jumper URDF (../../jumper/assets/jumper/urdf/jumper): visual meshes + forward kinematics.
 
-Jumper © 2026 KingKong Robotics, Apache-2.0. Only the claw outline is used (see v4_claw.py).
+Jumper © 2026 KingKong Robotics, Apache-2.0. Only the claw outline is used (see jumper_arms.py).
 Units: the URDF is in metres; meshes() returns millimetres.
 """
 import os, numpy as np, trimesh, xml.etree.ElementTree as ET

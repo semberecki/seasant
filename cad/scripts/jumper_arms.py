@@ -1,6 +1,6 @@
-"""SesAnt v4 (1/2): two Jumper-style front arms, each ending in a two-jaw Jumper claw.
+"""SesAnt Jumper (1/2): two Jumper-style front arms, each ending in a two-jaw Jumper claw.
 
-Usage: python v4_arms.py <work dir with asm.pkl, v2.pkl, v3.pkl> <sesant root>
+Usage: python jumper_arms.py <work dir with asm.pkl, v2.pkl, v3.pkl> <sesant root>
 
 Like Jumper's front limbs: SesAnt gets a left and a right arm in front of its four walking legs.
 Per arm, 3 MG90S:
@@ -25,7 +25,7 @@ from trimesh.collision import CollisionManager
 from shapely.geometry import LineString
 
 WORK, ROOT = sys.argv[1], sys.argv[2]
-OUT = ROOT + '/v4'
+OUT = ROOT + '/sesant_jumper'
 for s in ('stl', 'images', 'assembly'): os.makedirs(f'{OUT}/{s}', exist_ok=True)
 
 # ----------------------------------------------------------------------------- parameters (right arm, arm at yaw 0 / pitch 0)
@@ -188,7 +188,7 @@ for s in SIDES:
                 'pitch_horn': mesh_side(v3.servo_at(M_pitch_srv, horn=True), s),
                 'grip_horn': mesh_side(v3.servo_at(M_grip_srv, horn=True), s), 'pushrod': mesh_side(pushrod_mesh(0.0), s)}
 
-# arm-base housing: the v4 twin housing (two yaw servos lying forward), without a claw shelf
+# arm-base housing: holds the two shoulder yaw servos lying forward
 FW = min(t[0] for t in tabs(M_yaw_srv)) - 2.35 - 2.6
 YO = YBX[1, 1] + 2.4
 TABS_Y = tabs(M_yaw_srv)
@@ -278,7 +278,7 @@ def com(parts):
 rep = []
 def P(*s):
     line = ' '.join(str(x) for x in s); print(line); rep.append(line)
-P('== SesAnt v4 Jumper arms verification ==')
+P('== SesAnt Jumper arms verification ==')
 P(f'arm: shoulder yaw at ({JX}, +-{SY}), pitch axis ({XP}, z {ZP:.2f}), forearm {L_ARM:.0f} mm, gripper axis ({XG:.2f}, +-{YG:.2f}); '
   f'jaws (horizontal: palm inside, finger outside): Jumper palm + finger x{CLAW_SCALE}, gear pair m{GM} z{GZ} (pivots {2 * RPJ:.0f} mm apart)')
 gb0 = gearB; ga0 = gearA
@@ -441,18 +441,18 @@ P(f'on the v2 home puck (arms lifted {-DOCK["pitch"]:.0f} deg for docking), push
   sorted({n for n, m, c in full(trans([0, 0, v2['SEAT_DZ'] - 0.3]), knees=seat_kn, L=DOCK, R=DOCK) if cmp_.in_collision_single(m)}))
 
 # ----------------------------------------------------------------------------- 5. export
-info = {'sesant_v4_arm_housing': save_stl(house_tm, OUT + '/stl/sesant_v4_arm_housing.stl', rot(180, [1, 0, 0]))}
+info = {'sesant_jumper_arm_housing': save_stl(house_tm, OUT + '/stl/sesant_jumper_arm_housing.stl', rot(180, [1, 0, 0]))}
 for s, nm in (('r', 'right'), ('l', 'left')):
-    info[f'sesant_v4_shoulder_{nm}'] = save_stl(PARTS[s]['shoulder'], OUT + f'/stl/sesant_v4_shoulder_{nm}.stl', rot(180, [1, 0, 0]))
-    info[f'sesant_v4_forearm_{nm}'] = save_stl(PARTS[s]['forearm'], OUT + f'/stl/sesant_v4_forearm_{nm}.stl', rot(90 * SIDES[s], [1, 0, 0]))
-    info[f'sesant_v4_jaw_palm_{nm}'] = save_stl(PARTS[s]['jaw_palm'], OUT + f'/stl/sesant_v4_jaw_palm_{nm}.stl')
-    info[f'sesant_v4_jaw_finger_{nm}'] = save_stl(PARTS[s]['jaw_finger'], OUT + f'/stl/sesant_v4_jaw_finger_{nm}.stl')
+    info[f'sesant_jumper_shoulder_{nm}'] = save_stl(PARTS[s]['shoulder'], OUT + f'/stl/sesant_jumper_shoulder_{nm}.stl', rot(180, [1, 0, 0]))
+    info[f'sesant_jumper_forearm_{nm}'] = save_stl(PARTS[s]['forearm'], OUT + f'/stl/sesant_jumper_forearm_{nm}.stl', rot(90 * SIDES[s], [1, 0, 0]))
+    info[f'sesant_jumper_jaw_palm_{nm}'] = save_stl(PARTS[s]['jaw_palm'], OUT + f'/stl/sesant_jumper_jaw_palm_{nm}.stl')
+    info[f'sesant_jumper_jaw_finger_{nm}'] = save_stl(PARTS[s]['jaw_finger'], OUT + f'/stl/sesant_jumper_jaw_finger_{nm}.stl')
 for n, m in info.items():
     e = m.extents; P(f'{n:28s} {e[0]:6.1f} x {e[1]:6.1f} x {e[2]:5.1f} mm  {m.volume / 1000:5.1f} cm3')
-open(OUT + '/assembly/v4_arms_report.txt', 'w').write('\n'.join(rep) + '\n')
+open(OUT + '/assembly/sesant_jumper_arms_report.txt', 'w').write('\n'.join(rep) + '\n')
 json.dump({'yaw_range_deg': YAW_JOINT, 'pitch_range_deg': PITCH_RANGE, 'jaw_open_deg': JAW_OPEN, 'carry': CARRY, 'dock': DOCK, 'reach_pitch_deg': pdn,
            'reach_head_tilt_deg': t_, 'shoulder_xy': [JX, SY], 'pitch_axis_xz': [XP, ZP], 'gripper_xy': [XG, YG]},
-          open(OUT + '/assembly/sesant_v4_arms.json', 'w'), indent=1)
+          open(OUT + '/assembly/sesant_jumper_arms.json', 'w'), indent=1)
 pickle.dump({'STATIC': STATIC, 'PARTS': PARTS, 'LINK': LINK, 'COL': COL, 'house': house_tm,
              'axes': {'JX': JX, 'SY': SY, 'XP': XP, 'ZP': ZP, 'XG': XG, 'YG': YG, 'ZB': ZB, 'PA': PA, 'YJ': YJ},
              'ranges': {'yaw': YAW_JOINT, 'pitch': PITCH_RANGE, 'jaw': (0.0, JAW_OPEN)}, 'CARRY': CARRY, 'DOCK': DOCK, 'REACH': REACH, 'REACH_TILT': t_,
@@ -460,4 +460,4 @@ pickle.dump({'STATIC': STATIC, 'PARTS': PARTS, 'LINK': LINK, 'COL': COL, 'house'
              'reach': reach_parts, 'seat': full(trans([0, 0, v2['SEAT_DZ']]), knees=seat_kn, L=DOCK, R=DOCK), 'puck_items': v2['puck_items'],
              'claw_closed': arms(L=ARM0, R=ARM0), 'claw_open': arms(L={'yaw': 0, 'pitch': 0, 'jaw': JAW_OPEN}, R={'yaw': 0, 'pitch': 0, 'jaw': JAW_OPEN}),
              'palm_j': palm_j, 'fing_j': fing_j, 'PIV': PIV, 'jawA2d': jawA, 'jawB2d': jawB, 'STAND_DZ': STAND[2, 3]},
-            open(WORK + '/v4.pkl', 'wb'))
+            open(WORK + '/jumper.pkl', 'wb'))

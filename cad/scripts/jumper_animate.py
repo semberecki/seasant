@@ -1,14 +1,14 @@
-"""SesAnt v4 animation from the MuJoCo model (v4/sim/scene.xml): look around, reach down with both arms, grab, lift, wave,
+"""SesAnt Jumper animation from the MuJoCo model (sesant_jumper/sim/scene.xml): look around, reach down with both arms, grab, lift, wave,
 stand up, lift the front-left leg and tap. Scripted joint targets on the simulated servos (not a learned policy).
 
-Usage: python v4_animate.py <work dir> <sesant root>   ->  v4/images/sesant_v4_animation.gif
+Usage: python jumper_animate.py <work dir> <sesant root>   ->  sesant_jumper/images/sesant_jumper_animation.gif
 """
 import sys, os, json
 import numpy as np, mujoco
 from PIL import Image
 
 WORK, ROOT = sys.argv[1], sys.argv[2]
-SIM = ROOT + '/v4/sim'
+SIM = ROOT + '/sesant_jumper/sim'
 model = mujoco.MjModel.from_xml_path(SIM + '/scene.xml')
 data = mujoco.MjData(model)
 meta = json.load(open(SIM + '/sesant_sim.json'))
@@ -28,7 +28,7 @@ WAVE_DN = pose(WAVE_UP, arm_r_pitch=d(20), arm_r_jaw=0.0)
 paw_base = pose(CARRY, FR_hip=d(40), BL_hip=d(-45), neck_tilt=d(20))
 paw_up = dict(paw_base, FL_hip=d(-20), FL_knee=d(-95))
 paw_tap = dict(paw_up, FL_knee=d(-60))
-KEYS = [(0.0, CARRY, 'SesAnt v4'), (0.6, CARRY, 'SesAnt v4'),
+KEYS = [(0.0, CARRY, 'SesAnt Jumper'), (0.6, CARRY, 'SesAnt Jumper'),
         (1.3, pose(CARRY, neck_pan=d(50), neck_tilt=d(-10)), 'StackChan neck: look around'),
         (2.1, pose(CARRY, neck_pan=d(-50), neck_tilt=d(-10)), 'StackChan neck: look around'),
         (2.7, CARRY, 'StackChan neck: look around'),
@@ -40,7 +40,7 @@ KEYS = [(0.0, CARRY, 'SesAnt v4'), (0.6, CARRY, 'SesAnt v4'),
         (9.4, paw_base, 'paw: shift onto three feet'),
         (10.0, paw_up, 'paw: lift the front-left leg'),
         (10.3, paw_tap, 'paw: tap'), (10.6, paw_up, 'paw: tap'), (10.9, paw_tap, 'paw: tap'), (11.2, paw_up, 'paw: tap'),
-        (11.9, paw_base, 'paw: tap'), (12.6, CARRY, 'SesAnt v4'), (13.2, CARRY, 'SesAnt v4')]
+        (11.9, paw_base, 'paw: tap'), (12.6, CARRY, 'SesAnt Jumper'), (13.2, CARRY, 'SesAnt Jumper')]
 
 def target(t):
     for (t0, p0, c0), (t1, p1, c1) in zip(KEYS, KEYS[1:]):
@@ -80,7 +80,7 @@ while t < T_END:
     im = Image.fromarray(rnd.render())
     dr = ImageDraw.Draw(im); dr.text((14, 12), cap, fill=(40, 40, 40), font=font)
     frames.append(im)
-out = ROOT + '/v4/images/sesant_v4_animation.gif'
+out = ROOT + '/sesant_jumper/images/sesant_jumper_animation.gif'
 pal = [f.convert('P', palette=Image.ADAPTIVE, colors=128) for f in frames]
 pal[0].save(out, save_all=True, append_images=pal[1:], duration=int(1000 / FPS), loop=0, optimize=True)
 print(f'{len(frames)} frames, {T_END:.1f} s -> {out} ({os.path.getsize(out) / 1e6:.1f} MB); worst body tilt {tilt_max:.1f} deg '
@@ -88,4 +88,4 @@ print(f'{len(frames)} frames, {T_END:.1f} s -> {out} ({os.path.getsize(out) / 1e
 sheet = Image.new('RGB', (W * 4, H * 2), 'white')
 for i, idx in enumerate(np.linspace(0, len(frames) - 1, 8).astype(int)):
     sheet.paste(frames[idx], ((i % 4) * W, (i // 4) * H))
-sheet.save(WORK + '/v4_animation_sheet.png')
+sheet.save(WORK + '/jumper_animation_sheet.png')

@@ -15,7 +15,7 @@ A remix of Sesame onto RealAnt's body plan. The hips move out onto a RealAnt X-c
 ## Follow-ups in the same package (optional extra Mods)
 * **v2 home puck** (`v2/`): the robot walks over a 104 mm puck and sits down. A belly cone drops into a funnel and centres itself, and it charges at any heading. A good "how it works" story.
 * **v3 neck + mandibles** (`v3/`): StackChan's own pan/tilt servos become SesAnt's neck, and a geared pair of ant mandibles picks things up while the head watches. All three source robots do real work here. A Leo prompt to try: "add a pan/tilt neck under the CoreS3 head using StackChan's servos", then compare the result with `v3/`.
-* **v4 Jumper remix** (`v4/`): Two Jumper-style front arms (shoulder yaw + pitch) with two-jaw claws that grab horizontally: the jaw outline is taken from Jumper's URDF, and both jaws are geared to swing open together, driven by a pushrod from a servo behind the shoulder. Also a MuJoCo model of SesAnt with a walking task for Jumper's RL training framework. A fourth robot remixed in, and the simulator lets anyone try SesAnt before printing it.
+* **SesAnt Jumper** (`sesant_jumper/`), the Jumper remix: Two Jumper-style front arms (shoulder yaw + pitch) with two-jaw claws that grab horizontally: the jaw outline is taken from Jumper's URDF, and both jaws are geared to swing open together, driven by a pushrod from a servo behind the shoulder. Also a MuJoCo model of SesAnt with a walking task for Jumper's RL training framework. A fourth robot remixed in, and the simulator lets anyone try SesAnt before printing it.
 
 ## Files to upload to the Mod
 * `stl/*.stl`: 7 new printed parts (incl. the StackChan head), plus Sesame's original femurs (listed as reused)

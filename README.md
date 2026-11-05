@@ -46,10 +46,11 @@ seasant/
 │   ├── sesant_geometry.json          hip/knee axes, heights (for URDF/MJCF or kinematics)
 │   └── verification_report.txt       collision + clearance checks (generated)
 ├── images/                      renders
-├── ROADMAP.md                   v2 (home puck) and v3 (neck + mandibles): goals, design, what is verified, next steps
+├── ROADMAP.md                   v2 (home puck), v3 (neck + mandibles) and SesAnt Jumper: goals, design, what is verified, next steps
 ├── v2/                          v2: home puck - belly cone + charging funnel, any-heading contacts, firmware, bench tool
 ├── v3/                          v3: StackChan pan/tilt neck (SCS0009) + ant mandibles (MG90S + gear pair), firmware
-├── v4/                          v4: Jumper remix - two front arms (yaw, pitch, two-jaw Jumper claw), MuJoCo model + sesant.flat task, firmware
+├── sesant_jumper/                SesAnt Jumper (the final design): two Jumper-style arms with two-jaw claws, MuJoCo model + sesant.flat task, firmware
+├── SesAnt Jumper.step           the whole SesAnt Jumper robot as one STEP assembly (e.g. to create a Tnkr project from this repo)
 └── cad/                         generator scripts (reproduce everything from the source repos)
 ```
 
@@ -143,11 +144,11 @@ See [ROADMAP.md](ROADMAP.md). Both follow-ups are designed and checked in CAD, b
 * **[v3](v3/README.md): StackChan neck + ant mandibles.** The CoreS3 head moves onto a pan/tilt neck made of StackChan's own SCS0009 servos. A pair of geared mandibles under the front picks small objects off the floor while the head looks down at them. It still docks on the v2 puck.
 
 ![v2 home puck](v2/images/v2_puck_hero.png)
-* **[v4](v4/README.md): the Jumper remix.** Two Jumper-style front arms (shoulder yaw + pitch) ending in two-jaw Jumper claws that grab horizontally (palm + finger outline from Jumper's URDF, both jaws geared to swing open together, gripper servo behind the shoulder with a pushrod, so no servo at the claw) in place of the mandibles, and a MuJoCo model of SesAnt with a `sesant.flat` walking task for Jumper's mjlab / rsl_rl training framework (runs on CPU or GPU).
+* **[SesAnt Jumper](sesant_jumper/README.md): the Jumper remix.** Two Jumper-style front arms (shoulder yaw + pitch) ending in two-jaw Jumper claws that grab horizontally (palm + finger outline from Jumper's URDF, both jaws geared to swing open together, gripper servo behind the shoulder with a pushrod, so no servo at the claw) in place of the mandibles, and a MuJoCo model of SesAnt with a `sesant.flat` walking task for Jumper's mjlab / rsl_rl training framework (runs on CPU or GPU).
 
 ![v3 neck + mandibles](v3/images/sesant_v3_hero.png)
-![v4 Jumper arms](v4/images/sesant_v4_hero.png)
-![v4 in MuJoCo](v4/images/sesant_v4_animation.gif)
+![SesAnt Jumper](sesant_jumper/images/sesant_jumper_hero.png)
+![SesAnt Jumper in MuJoCo](sesant_jumper/images/sesant_jumper_animation.gif)
 
 ## Next ideas
 
@@ -161,13 +162,13 @@ The generators read the source robots from sibling folders, so clone them next t
 ```bash
 git clone https://github.com/semberecki/realant.git
 git clone https://github.com/dorianborian/sesame-robot.git
-git clone https://github.com/KingKongRobotics/jumper.git      # v4 (claw outline, training framework)
+git clone https://github.com/KingKongRobotics/jumper.git      # SesAnt Jumper (claw outline, training framework)
 cd seasant/cad
 pip install -r requirements.txt
 ./build_all.sh
 ```
 
-`build.py` parameters: `D_SHIFT` (hip offset), `REALANT_SCALE`, `BLADE_TIP_Z` (shin length), `CAM_TILT_DEG` and `FACE_FLOOR_Z` (head), plate thickness and the servo clearances. `build_all.sh` also regenerates v2 (`v2_puck.py`: `WALL_DEG`, `CAPTURE`, cone size, puck height `H`, `TAG_X`) and v3 (`v3_neck_jaw.py`: neck axis `NX`, tilt range, mandible pivots and gear module, `JAW_OPEN`), and v4 (`v4_arms.py`: `CLAW_SCALE`, `JAW_OPEN`, `L_ARM`, gear module, ranges; `v4_sim.py`: servo effort/gains, `MAX_FACES`). v4 needs `mujoco` and `fast_simplification` (in `requirements.txt`).
+`build.py` parameters: `D_SHIFT` (hip offset), `REALANT_SCALE`, `BLADE_TIP_Z` (shin length), `CAM_TILT_DEG` and `FACE_FLOOR_Z` (head), plate thickness and the servo clearances. `build_all.sh` also regenerates v2 (`v2_puck.py`: `WALL_DEG`, `CAPTURE`, cone size, puck height `H`, `TAG_X`) and v3 (`v3_neck_jaw.py`: neck axis `NX`, tilt range, mandible pivots and gear module, `JAW_OPEN`), and SesAnt Jumper (`jumper_arms.py`: `CLAW_SCALE`, `JAW_OPEN`, `L_ARM`, gear module, ranges; `jumper_sim.py`: servo effort/gains, `MAX_FACES`). SesAnt Jumper needs `mujoco` and `fast_simplification` (in `requirements.txt`).
 
 ## Licence
 
