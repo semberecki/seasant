@@ -169,6 +169,10 @@ pip install -r requirements.txt
 
 `build.py` parameters: `D_SHIFT` (hip offset), `REALANT_SCALE`, `BLADE_TIP_Z` (shin length), `CAM_TILT_DEG` and `FACE_FLOOR_Z` (head), plate thickness and the servo clearances. `build_all.sh` also regenerates v2 (`v2_puck.py`: `WALL_DEG`, `CAPTURE`, cone size, puck height `H`, `TAG_X`) and v3 (`v3_neck_jaw.py`: neck axis `NX`, tilt range, mandible pivots and gear module, `JAW_OPEN`), and v4 (`v4_arms.py`: `CLAW_SCALE`, `JAW_OPEN`, `L_ARM`, gear module, ranges; `v4_sim.py`: servo effort/gains, `MAX_FACES`). v4 needs `mujoco` and `fast_simplification` (in `requirements.txt`).
 
-## Licences
+## Licence
 
-RealAnt © 2020 Ote Robotics Ltd / Aalto University, MIT licence (see `realant/LICENSE`). Sesame © Dorian Todd, Apache-2.0 (see `sesame-robot/LICENSE`). StackChan: see `StackChan/` (no StackChan mechanical files are used; only the CoreS3 dimensions and, for v3, its servo protocol settings). Jumper © 2026 KingKong Robotics, Apache-2.0 (see `jumper/LICENSE`): v4 uses its claw outline and its training framework structure. SesAnt derived files keep the terms of their sources. Credit all source projects when you share this remix.
+SesAnt is licensed under the **Apache License 2.0** (see [`LICENSE`](LICENSE)).
+
+It remixes RealAnt (© 2020 Ote Robotics Ltd / Aalto University, MIT), Sesame (© Dorian Todd, Apache-2.0), StackChan (© 2026 M5Stack, MIT; only the CoreS3 dimensions and servo settings are used) and Jumper (© 2026 KingKong Robotics, Apache-2.0).
+[`NOTICE`](NOTICE) lists what comes from each project. [`licenses/`](licenses) holds their licence texts.
+Files derived from them keep their sources' terms. Credit all four projects when you share or build on SesAnt. SesAnt is not endorsed by any of them.
