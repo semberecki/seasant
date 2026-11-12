@@ -1,0 +1,46 @@
+section,item,qty,unit,used_by,spec_or_file,notes,source
+Actuators,MG90S 180-degree metal-gear micro servo,14,pcs,base + arms,180-degree version only,"8 legs (4 hips in chassis pods, 4 knees in blade feet) + 6 arms (shoulder yaw, shoulder pitch, gripper per arm); buy 2 spares",https://www.amazon.com/s?k=mg90s+metal+gear+servo+180+degrees
+Actuators,Feetech SCS0009 serial servo,2,pcs,neck,"IDs 1 (pan) and 2 (tilt), 1 Mbps",StackChan's neck servos; set the IDs before assembly,https://www.amazon.com/s?k=feetech+scs0009
+Electronics,Lolin ESP32-S2 Mini (or Sesame Distro Board V3),1,pcs,base,esp32:esp32:lolin_s2_mini,Mounts in the spine as in Sesame; runs firmware/sesant_jumper_body,https://www.amazon.com/s?k=esp32+s2+mini
+Electronics,M5Stack CoreS3,1,pcs,neck,54 x 54 x 16 mm,"Head: face, camera, mics, speaker, IMU (~73 g)",https://docs.m5stack.com/en/core/CoreS3
+Electronics,Buck converter 5 V out,1,pcs,base,5-12 V in; 5 V 3 A minimum,"Only with the S2 Mini (the Distro Board has one); 14 MG90S share it, so a 5 A module gives more headroom",https://www.amazon.com/s?k=5v+5a+dc+dc+buck+converter+module
+Electronics,Small protoboard ~5 x 7 cm + 3-pin male headers,1 + 16,pcs,base,,"Only with the S2 Mini: servo breakout for 14 MG90S + the SCS bus",https://www.amazon.com/s?k=prototype+perfboard
+Electronics,KCD1 mini rocker switch,1,pcs,base,panel mount,Roof of the body cover,https://www.amazon.com/s?k=KCD1+mini+rocker+switch+2+pin
+Electronics,1 kOhm resistor,1,pcs,neck,,SCS bus: TX GPIO 17 -> 1 kOhm -> data line; RX GPIO 18 to the data line,
+Electronics,3-pin SCS bus lead,1,pcs,neck,,From the S2 Mini to the pan servo; the tilt servo daisy-chains,
+Electronics,Flexible 4-wire lead (5 V / GND / UART) for the CoreS3,1,pcs,neck,USB-C pigtail or Grove Port C,Leave a service loop behind the neck,
+Power,Bambu Lab 14500 7.4 V 800 mAh Li-ion pack,1,pcs,base,,Fits Sesame's battery channel,https://tidd.ly/4x4Ec9b
+Power,XH2.54 female pigtail,1,pcs,base,,Battery to switch/board,https://www.amazon.com/s?k=xh2.54+pigtail+cable
+Power,SS34 Schottky diode,1,pcs,dock (robot side),,Charge contacts -> battery,
+Power,1.5 A polyfuse,1,pcs,dock (robot side),,In the charge line,
+Power,Resistor 100 kOhm,2,pcs,dock (robot side),,Voltage dividers (with the 27k) for charge sensing,
+Power,Resistor 27 kOhm,2,pcs,dock (robot side),,Voltage dividers,
+Power,Brass sheet 0.5 mm (or copper tape),1,piece,dock (robot side),,Disc (+) and ring (GND) pads in the belly-cone tip,
+Mechanical,Steel wire 1.2 mm,2,pcs,arms,~45 mm each before the Z-bends,Gripper pushrods (RC-style Z-bends),https://www.amazon.com/s?k=1.2mm+steel+pushrod+wire
+Fasteners,M2 x 5 self-tapping screws,~70,pcs,all,variety pack recommended,"~40 base (8 hip-servo tabs, 4 cover, rest as Sesame) + ~22 arms (servo tabs, horn plates, 4 jaw pivots, 2 housing lip) + ~8 neck (servo tabs, horns)",https://www.amazon.com/s?k=m2+self+tapping+screws+kit
+Fasteners,M2 x 8 self-tapping screws,2,pcs,dock (robot side),3 mm longer than the bottom-cover screws,Hold the belly cone and bottom cover,
+Fasteners,M2 nuts,2,pcs,arms,,Arm housing lip to the cover front wall,
+Fasteners,M2.5 x 5 machine screws,16,pcs,base + arms,,MG90S horns onto the shafts (stock horn screws are usually too short),https://www.amazon.com/s?k=m2.5+machine+screw+kit
+Consumables,22 AWG silicone wire,1,kit,base,,Power bus,https://www.amazon.com/s?k=22awg+silicone+wire+kit
+Consumables,30 AWG silicone wire,1,kit,base,,Signal leads,https://www.amazon.com/s?k=30awg+silicone+wire
+Consumables,Heat-shrink assortment and small zip ties,1,kit,base,,,https://www.amazon.com/s?k=heat+shrink+tubing+kit
+Printed,Chassis,1,pcs,base,stl/sesant_chassis.stl,Prints upside down,
+Printed,Blade feet L3 / L4 / R3 / R4,4,pcs,base,stl/sesant_blade_foot_{L3,L4,R3,R4}.stl,4 walls,
+Printed,Femurs L1 / L2 / R1 / R2,4,pcs,base,sesame-robot hardware/printing/stl/{L1,L2,R1,R2}-v117.stl,Original Sesame parts (Apache-2.0),https://github.com/dorianborian/sesame-robot
+Printed,Bottom cover with wire holes,1,pcs,dock (robot side),v2/stl/sesant_v2_bottom_cover.stl,Replaces stl/sesant_bottom_cover.stl,
+Printed,Belly cone,1,pcs,dock (robot side),v2/stl/sesant_v2_belly_cone.stl,Flange down,
+Printed,Body cover with pan-servo collar,1,pcs,neck,v3/stl/sesant_v3_body_cover.stl,Replaces stl/sesant_stackchan_head.stl,
+Printed,Neck,1,pcs,neck,v3/stl/sesant_v3_neck.stl,,
+Printed,Head (CoreS3 pocket),1,pcs,neck,v3/stl/sesant_v3_head.stl,Prints upside down,
+Printed,Arm housing,1,pcs,arms,sesant_jumper/stl/sesant_jumper_arm_housing.stl,Prints upside down; replaces the v3 jaw housing,
+Printed,Shoulder left / right,2,pcs,arms,sesant_jumper/stl/sesant_jumper_shoulder_{left,right}.stl,Plate down,
+Printed,Forearm left / right,2,pcs,arms,sesant_jumper/stl/sesant_jumper_forearm_{left,right}.stl,On its side; tree supports under the claw plate,
+Printed,Jaw palm left / right,2,pcs,arms,sesant_jumper/stl/sesant_jumper_jaw_palm_{left,right}.stl,Flat,
+Printed,Jaw finger left / right,2,pcs,arms,sesant_jumper/stl/sesant_jumper_jaw_finger_{left,right}.stl,Flat,
+Dock station,Home puck,1,pcs,dock (puck),v2/stl/sesant_v2_home_puck.stl,Flat; no supports,
+Dock station,AprilTag flag,1,pcs,dock (puck),v2/stl/sesant_v2_tag_flag.stl,Holds a 58 mm card with a 50 mm tag36h11 id 0,
+Dock station,3 mm spring pogo pins,2,pcs,dock (puck),">=2 A, ~1.5 mm travel, ~12 mm long",Centre = charger +; outer = GND,https://www.amazon.com/s?k=3mm+pogo+pin+spring
+Dock station,USB-C PD trigger board 12 V,1,pcs,dock (puck),,,https://www.amazon.com/s?k=usb+c+pd+trigger+12v
+Dock station,TP5100 2S Li-ion charger module,1,pcs,dock (puck),,,https://www.amazon.com/s?k=tp5100+charger+module
+Dock station,Rubber feet 10 mm,4,pcs,dock (puck),,,
+Dock station,USB-C power supply with PD 12 V,1,pcs,dock (puck),,,

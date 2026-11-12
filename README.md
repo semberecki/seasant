@@ -81,6 +81,8 @@ Done with mesh collision checks (FCL) on the real STEP/STL geometry of femurs, M
 
 ## Bill of materials
 
+**Full SesAnt Jumper build (all versions, with sources): [`bom.csv`](bom.csv).** The table below is the v1 base only.
+
 Same electronics as Sesame (see `sesame-robot/hardware/bom/README.md`), plus a few items:
 
 | Item | Qty | Notes |
