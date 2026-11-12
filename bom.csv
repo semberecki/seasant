@@ -25,18 +25,18 @@ Consumables,22 AWG silicone wire,1,kit,base,,Power bus,https://www.amazon.com/s?
 Consumables,30 AWG silicone wire,1,kit,base,,Signal leads,https://www.amazon.com/s?k=30awg+silicone+wire
 Consumables,Heat-shrink assortment and small zip ties,1,kit,base,,,https://www.amazon.com/s?k=heat+shrink+tubing+kit
 Printed,Chassis,1,pcs,base,stl/sesant_chassis.stl,Prints upside down,
-Printed,Blade feet L3 / L4 / R3 / R4,4,pcs,base,stl/sesant_blade_foot_{L3,L4,R3,R4}.stl,4 walls,
-Printed,Femurs L1 / L2 / R1 / R2,4,pcs,base,sesame-robot hardware/printing/stl/{L1,L2,R1,R2}-v117.stl,Original Sesame parts (Apache-2.0),https://github.com/dorianborian/sesame-robot
+Printed,Blade feet L3 / L4 / R3 / R4,4,pcs,base,"stl/sesant_blade_foot_{L3,L4,R3,R4}.stl",4 walls,
+Printed,Femurs L1 / L2 / R1 / R2,4,pcs,base,"sesame-robot hardware/printing/stl/{L1,L2,R1,R2}-v117.stl",Original Sesame parts (Apache-2.0),https://github.com/dorianborian/sesame-robot
 Printed,Bottom cover with wire holes,1,pcs,dock (robot side),v2/stl/sesant_v2_bottom_cover.stl,Replaces stl/sesant_bottom_cover.stl,
 Printed,Belly cone,1,pcs,dock (robot side),v2/stl/sesant_v2_belly_cone.stl,Flange down,
 Printed,Body cover with pan-servo collar,1,pcs,neck,v3/stl/sesant_v3_body_cover.stl,Replaces stl/sesant_stackchan_head.stl,
 Printed,Neck,1,pcs,neck,v3/stl/sesant_v3_neck.stl,,
 Printed,Head (CoreS3 pocket),1,pcs,neck,v3/stl/sesant_v3_head.stl,Prints upside down,
 Printed,Arm housing,1,pcs,arms,sesant_jumper/stl/sesant_jumper_arm_housing.stl,Prints upside down; replaces the v3 jaw housing,
-Printed,Shoulder left / right,2,pcs,arms,sesant_jumper/stl/sesant_jumper_shoulder_{left,right}.stl,Plate down,
-Printed,Forearm left / right,2,pcs,arms,sesant_jumper/stl/sesant_jumper_forearm_{left,right}.stl,On its side; tree supports under the claw plate,
-Printed,Jaw palm left / right,2,pcs,arms,sesant_jumper/stl/sesant_jumper_jaw_palm_{left,right}.stl,Flat,
-Printed,Jaw finger left / right,2,pcs,arms,sesant_jumper/stl/sesant_jumper_jaw_finger_{left,right}.stl,Flat,
+Printed,Shoulder left / right,2,pcs,arms,"sesant_jumper/stl/sesant_jumper_shoulder_{left,right}.stl",Plate down,
+Printed,Forearm left / right,2,pcs,arms,"sesant_jumper/stl/sesant_jumper_forearm_{left,right}.stl",On its side; tree supports under the claw plate,
+Printed,Jaw palm left / right,2,pcs,arms,"sesant_jumper/stl/sesant_jumper_jaw_palm_{left,right}.stl",Flat,
+Printed,Jaw finger left / right,2,pcs,arms,"sesant_jumper/stl/sesant_jumper_jaw_finger_{left,right}.stl",Flat,
 Dock station,Home puck,1,pcs,dock (puck),v2/stl/sesant_v2_home_puck.stl,Flat; no supports,
 Dock station,AprilTag flag,1,pcs,dock (puck),v2/stl/sesant_v2_tag_flag.stl,Holds a 58 mm card with a 50 mm tag36h11 id 0,
 Dock station,3 mm spring pogo pins,2,pcs,dock (puck),">=2 A, ~1.5 mm travel, ~12 mm long",Centre = charger +; outer = GND,https://www.amazon.com/s?k=3mm+pogo+pin+spring
